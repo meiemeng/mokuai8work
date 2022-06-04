@@ -23,7 +23,7 @@ Ingress
 附件 service.yaml,ingress.yaml 解决service ingress  httpserver通讯安全使用openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=meimeng.com/O=meimeng" -addext "subjectAltName = DNS:meimeng.com"    kubectl create secret tls meimeng-tls --cert=./tls.crt --key=./tls.key
 在ingress.yaml中进行引用这个secret  secretName: meimeng-tls
 
-如何确保整个应用的高可用，1.冗余部署，deployment采取多副本形式，而负载均衡，在某一pod无法响应时流量可以通过负载均衡转载到其他Pod达到高可用效果
+如何确保整个应用的高可用，1.冗余部署，deployment采取多副本形式，2.service 4层负载均衡ingress 7层负载均衡，在某一pod无法响应时流量可以通过负载均衡转载到其他Pod，当未响应pod恢复时，负载均衡才会将流量发送过去从而达到高可用效果
 
 
 
