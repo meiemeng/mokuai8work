@@ -1,5 +1,6 @@
 # mokuai8work
 yaml 文件的位置位于yaml文件夹中
+
 1.编写 Kubernetes 部署脚本将 httpserver 部署到 Kubernetes 集群，以下是你可以思考的维度。
 优雅启动
 优雅终止
